@@ -23,13 +23,16 @@
 
                     <form action="{{route('customerList')}}" method="POST"  enctype="multipart/form-data">
                         @csrf
+
+
+
                         
   <div class="form-group sm-4">
     <label for="name " style="margin-top: 10px;">Name</label>
     <input type="name" style="margin-top: 10px;" class="form-control" id="exampleInputEmail1" aria-describedby="name" placeholder="Enter name" name="name" required >
              @if ($errors->has('name'))
                           <div class="error">{{ $errors->first('name') }}</div>
-                            
+
                           @endif
   </div>
   <div class="form-group sm-4">
@@ -37,7 +40,7 @@
     <input type="address" style="margin-top: 10px;" class="form-control" id="exampleInputPassword1" placeholder="Enter address" name="address" required >
     @if ($errors->has('url'))
                           <div class="error">{{ $errors->first('address') }}</div>
-                            
+
                           @endif
   </div>
   <div class="form-group sm-4">
@@ -45,10 +48,10 @@
     <input type="file" style="margin-top: 10px;" class="form-control" id="exampleInputPassword1" placeholder="Enter description" name="image" required >
     @if ($errors->has('url'))
                           <div class="error">{{ $errors->first('image') }}</div>
-                            
+
                           @endif
   </div>
-  
+
   <button type="submit" style="margin-top: 10px;" class="btn btn-primary">Add</button>
 </form>
 
@@ -74,7 +77,7 @@
                             <td>{{$li->name}}</td>
                             <td>{{$li->address}}</td>
                             <td>{{$li->image}}</td>
-                            
+
 
                             <td>
                             <a href="{{route('editCustomerList',$li->id)}}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit your Data">EDIT</a>
@@ -85,18 +88,18 @@
                           </tr>
                           @endforeach
 
-                        
+
                         </tbody>
                       </table>
-                      
+
                       {{$customers->links('pagination::bootstrap-4')}}
                         </thead>
 
-                        
-                        
+
+
                 </div>
-                
-                
+
+
 
             </div>
             </div>

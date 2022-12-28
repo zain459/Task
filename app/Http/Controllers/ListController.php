@@ -11,13 +11,11 @@ class ListController extends Controller
     public function index(){
 
         $lists=lists::paginate(4);
-
-
         return view('home',['lists'=>$lists]);
-    
+
     }
 
-    
+
 
     function createList(Request $request){
         //  dd($request->all());
@@ -26,7 +24,7 @@ class ListController extends Controller
             'title'=>'required',
             'url'=>'required|unique:lists,url',
             'description'=> 'required',
-            
+
         ]);
 
 
@@ -62,7 +60,7 @@ class ListController extends Controller
     function deleteList($id){
         $lists= lists::find($id);
         $lists->delete();
- 
+
         return redirect(route('home'));
      }
 }
